@@ -25,7 +25,7 @@ router.put("/forgot",async(req,res)=>{
                 from: EMAIL, // sender address
                 to: req.body.email, // list of receivers
                 subject: "Reset Password Link", // Subject line
-                text: `Hello and Greeting from Precis! Please click on the below link to reset the password with the secret string.\nSecret Key: ${randomstring} 
+                text: `Hello and Greeting from CloudSynk! Please click on the below link to reset the password with the secret string.\nSecret Key: ${randomstring} 
                 \nLink: ${URL+"resetpassword/"+newtoken}`
               });
               console.log("Message sent: %s", info.messageId);
