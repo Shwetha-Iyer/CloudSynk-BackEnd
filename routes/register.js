@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {COLLECTION_NAME,EMAIL} = require("../helpers/environment");
+const {COLLECTION_NAME,EMAIL,URL} = require("../helpers/environment");
 const encrypt_password = require("../services/passwordencrypt");
 const find_doc = require("../controllers/find_doc");
 const create_token = require("../services/generatetoken");
@@ -28,8 +28,8 @@ router.post("/register",async(req,res)=>{
                 from: EMAIL, // sender address
                 to: req.body.email, // list of receivers
                 subject: "Account Activation link", // Subject line
-                text: `Hello! Your account with CloudSynk has been successfully created. Please click on the link to activate your account and enter the below credentials.\n Username: ${req.body.email}`
-                //${URL+"activateaccount/"+account_activation}`, // plain text body 
+                text: `Hello! Your account with CloudSynk has been successfully created. Please click on the link to activate your account.
+                \nLink: ${URL+"activateaccount/"+req.body.signup_token}`
               });
               console.log("New user created,",req.body.email);
               console.log("Message sent: %s", info.messageId);

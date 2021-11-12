@@ -11,20 +11,15 @@ router.put("/storefiles/:id", async(req,res)=>{
         if(checkuser){
             //name size type downloadurl
             if(checkuser.files){
-                console.log("inside already files");
+                //console.log("inside already files");
                 await modifyfield(COLLECTION_NAME,"update","_id",req.params.id,{files:req.body});
                 res.status(200).send("Added");
             }
-            
-            
             else{
-                console.log("inside new files")
+                //console.log("inside new files")
                 await modifyfield(COLLECTION_NAME,"add","_id",req.params.id,{files:[req.body]});
                 res.status(200).send("Added");
             }
-            
-
-
         }
         else{
             res.status(404).send("User not found!");

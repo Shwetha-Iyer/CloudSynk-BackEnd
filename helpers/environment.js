@@ -15,5 +15,6 @@ module.exports = {
     ACCESSKEYID:process.env.ACCESSKEYID,
     REGION:process.env.REGION,
     BUCKET:process.env.BUCKET,
-    FOLDER:process.env.FOLDER
+    FOLDER:process.env.FOLDER,
+    URL:process.env.URL
 }

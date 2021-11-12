@@ -6,7 +6,7 @@ const password = require("../services/generatepassword");
 const modifyfield = require("../controllers/modifyfield");
 const create_token = require("../services/generatetoken");
 const create_email = require("../services/email");
-const {EMAIL, COLLECTION_NAME} = require("../helpers/environment");
+const {EMAIL, COLLECTION_NAME,URL} = require("../helpers/environment");
 router.put("/forgot",async(req,res)=>{
     try{
         // check if the email exists
@@ -25,8 +25,8 @@ router.put("/forgot",async(req,res)=>{
                 from: EMAIL, // sender address
                 to: req.body.email, // list of receivers
                 subject: "Reset Password Link", // Subject line
-                text: `Hello! Please click on the link to reset the password with the secret string.\n Secret Key: ${randomstring}`
-                //${URL+"activateaccount/"+new_token}`, // plain text body 
+                text: `Hello and Greeting from Precis! Please click on the below link to reset the password with the secret string.\nSecret Key: ${randomstring} 
+                \nLink: ${URL+"resetpassword/"+newtoken}`
               });
               console.log("Message sent: %s", info.messageId);
             res.status(200).send("Email sent successfully");

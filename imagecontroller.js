@@ -42,7 +42,7 @@ function uploadToS3(req,res){
     return new Promise((resolve,reject)=>{
         return singleFileUpload(req,res,err =>{
             if(err) return reject(err);
-            console.log(`https://${BUCKET}.s3.${REGION}.amazonaws.com/${FOLDER}/${req.s3Key}`)
+            //console.log(`https://${BUCKET}.s3.${REGION}.amazonaws.com/${FOLDER}/${req.s3Key}`)
             return resolve(`https://${BUCKET}.s3.${REGION}.amazonaws.com/${FOLDER}/${req.s3Key}`)
         })
     })
@@ -54,7 +54,7 @@ module.exports = {
         //     Bucket:`sample-bucket-mern`
         // });
         uploadToS3(req,res).then(downloadUrl=>{
-            console.log(downloadUrl);
+            //console.log(downloadUrl);
             return  res.status(200).send({downloadUrl})
         }).catch(e=>{
             console.log(e);
