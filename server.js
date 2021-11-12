@@ -25,7 +25,7 @@ const MAX_AGE = 1000 * 60 * 10 ; // 10min
 app.set('trust proxy',1);
 // setting up cors
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://cloudsynk.netlify.app',
   methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD','DELETE'],
   credentials: true,
   allowedHeaders: 'Content-Type, *'
